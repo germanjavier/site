@@ -31,6 +31,15 @@ const CONFIG = {
     },
     {
       id: 4,
+      title: 'Juego de Cubo Rubik',
+      description: 'Juego web de Cubo Rubik con movimientos y ranking.',
+      image: 'images/CuboRubik.png',
+      tags: ['HTML', 'CSS', 'Javacript'],
+      demo: 'https://germanjavier.github.io/cube/dist/',
+      code: '#'
+    },
+    {
+      id: 5,
       title: 'Red social de Hilos "Bloops"',
       description: 'Bloops es una red social estilo hilos donde los usuarios comparten notas, imágenes y textos. Ofrece personalización de perfil, sistema de seguimiento, buscador de usuarios y opción para compartir publicaciones. Actualmente solo está disponible para móviles, ya que su versión web aún no está completa.',
       image: 'images/Bloops.png',
@@ -39,7 +48,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Aplicación del Clima',
       description: 'Aplicación que muestra el pronóstico del tiempo en tiempo real usando una API externa.',
       image: 'images/Clima.png',
@@ -48,7 +57,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Happy Store - Tienda Online',
       description: 'Happy Store es un Software de Tienda Online con panel de administrador y catalogo de productos te permite gestionar tus datos del local, productos, usuarios, marcas, categorias y talles, mostrando los productos en el catalogo visible para invitados o usuarios registrados.',
       image: 'images/HappyStore.png',
