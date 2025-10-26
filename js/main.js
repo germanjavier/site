@@ -52,8 +52,8 @@ const CONFIG = {
       title: 'Aplicación del Clima',
       description: 'Aplicación que muestra el pronóstico del tiempo en tiempo real usando una API externa.',
       image: 'images/Clima.png',
-      tags: ['JavaScript', 'API', 'CSS Grid'],
-      demo: '#',
+      tags: ['HTML', 'JavaScript', 'API', 'Tailwind'],
+      demo: 'https://germanjavier.github.io/clima-io/',
       code: '#'
     },
     {
