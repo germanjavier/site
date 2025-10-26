@@ -38,15 +38,15 @@ const CONFIG = {
       demo: 'https://germanjavier.github.io/cube/dist/',
       code: '#'
     },
-    {
-      id: 5,
-      title: 'Red social de Hilos "Bloops"',
-      description: 'Bloops es una red social estilo hilos donde los usuarios comparten notas, imágenes y textos. Ofrece personalización de perfil, sistema de seguimiento, buscador de usuarios y opción para compartir publicaciones. Actualmente solo está disponible para móviles, ya que su versión web aún no está completa.',
-      image: 'images/Bloops.png',
-      tags: ['PHP', 'HTML', 'CSS', 'SQl', 'Javascript'],
-      demo: 'https://bloops.kesug.com/',
-      code: '#'
-    },
+    // {
+    //   id: 5,
+    //   title: 'Red social de Hilos "Bloops"',
+    //   description: 'Bloops es una red social estilo hilos donde los usuarios comparten notas, imágenes y textos. Ofrece personalización de perfil, sistema de seguimiento, buscador de usuarios y opción para compartir publicaciones. Actualmente solo está disponible para móviles, ya que su versión web aún no está completa.',
+    //   image: 'images/Bloops.png',
+    //   tags: ['PHP', 'HTML', 'CSS', 'SQl', 'Javascript'],
+    //   demo: 'https://bloops.kesug.com/',
+    //   code: '#'
+    // },
     {
       id: 6,
       title: 'Aplicación del Clima',
