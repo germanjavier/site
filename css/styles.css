@@ -1326,7 +1326,6 @@ body.menu-open {
 
 .project-link:hover {
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(247, 223, 30, 0.4);
 }
 
 .project-info {
