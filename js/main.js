@@ -4,6 +4,15 @@ const CONFIG = {
   projects: [
     {
       id: 1,
+      title: 'Glosario de Ingles tecnico',
+      description: 'El glosario de Ingles tecnico es una pagina web que muestra terminos de ingles tecnico con su definicion, pronunciacion y ejemplo. Fue echo para los estudiantes de T.A.P.W (Tecnico Analista Programador Web) del Instituto Lacademia para que puedan colaborar en el desarrollo de la pagina web y aprender a pronuncia terminos de ingles.',
+      image: 'images/Glosario.png',
+      tags: ['HTML', 'CSS', 'Javascript', 'JSON'],
+      demo: 'https://germanjavier.github.io/glosario-io/',
+      code: '#'
+    },
+    {
+      id: 2,
       title: 'StudyLoop',
       description: 'StudyLoop es una aplicación web progresiva (PWA) diseñada para ayudar a los estudiantes a organizar su vida académica de manera eficiente. Con una interfaz moderna y funcionalidades intuitivas, StudyLoop se convierte en tu compañero ideal para el éxito académico.',
       image: 'images/StudyLoop.png',
@@ -12,7 +21,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Web UX/ONE',
       description: 'Desarrollo de una pagina web profesional para la empresa de diseño y desarrolo web UX/ONE.',
       image: 'images/uxone.png',
@@ -21,16 +30,16 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 3,
-      title: 'Juego de Trivia',
-      description: 'Juego web de Trivia con preguntas, verdadero o falso y ranking.',
-      image: 'images/Trivia.png',
-      tags: ['HTML', 'CSS', 'Javacript'],
-      demo: 'https://german-javier.github.io/trivia/',
+      id: 4,
+      title: 'Happy Store - Tienda Online',
+      description: 'Happy Store es un Software de Tienda Online con panel de administrador y catalogo de productos te permite gestionar tus datos del local, productos, usuarios, marcas, categorias y talles, mostrando los productos en el catalogo visible para invitados o usuarios registrados.',
+      image: 'images/HappyStore.png',
+      tags: ['SQL', 'Javascript', 'CSS', 'PHP', 'TailWind'],
+      demo: 'https://tokiourban.infinityfreeapp.com/index.php',
       code: '#'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Juego de Cubo Rubik',
       description: 'Juego web de Cubo Rubik con movimientos y ranking.',
       image: 'images/CuboRubik.png',
@@ -38,15 +47,6 @@ const CONFIG = {
       demo: 'https://germanjavier.github.io/cube/dist/',
       code: '#'
     },
-    // {
-    //   id: 5,
-    //   title: 'Red social de Hilos "Bloops"',
-    //   description: 'Bloops es una red social estilo hilos donde los usuarios comparten notas, imágenes y textos. Ofrece personalización de perfil, sistema de seguimiento, buscador de usuarios y opción para compartir publicaciones. Actualmente solo está disponible para móviles, ya que su versión web aún no está completa.',
-    //   image: 'images/Bloops.png',
-    //   tags: ['PHP', 'HTML', 'CSS', 'SQl', 'Javascript'],
-    //   demo: 'https://bloops.kesug.com/',
-    //   code: '#'
-    // },
     {
       id: 6,
       title: 'Aplicación del Clima',
@@ -58,11 +58,11 @@ const CONFIG = {
     },
     {
       id: 7,
-      title: 'Happy Store - Tienda Online',
-      description: 'Happy Store es un Software de Tienda Online con panel de administrador y catalogo de productos te permite gestionar tus datos del local, productos, usuarios, marcas, categorias y talles, mostrando los productos en el catalogo visible para invitados o usuarios registrados.',
-      image: 'images/HappyStore.png',
-      tags: ['SQL', 'Javascript', 'CSS', 'PHP', 'TailWind'],
-      demo: 'https://tokiourban.infinityfreeapp.com/index.php',
+      title: 'Juego de Trivia',
+      description: 'Juego web de Trivia con preguntas, verdadero o falso y ranking.',
+      image: 'images/Trivia.png',
+      tags: ['HTML', 'CSS', 'Javacript'],
+      demo: 'https://german-javier.github.io/trivia/',
       code: '#'
     }
   ]
