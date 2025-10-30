@@ -4,6 +4,15 @@ const CONFIG = {
   projects: [
     {
       id: 1,
+      title: 'Libreria de Componentes',
+      description: 'Libreria de componentes para React.js de codigo abierto.',
+      image: 'images/ComponentUI.png',
+      tags: ['TypeScript', 'Next.js', 'Tailwind', 'Vite'],
+      demo: 'https://component-ui-io.vercel.app/',
+      code: '#',
+    },
+    {
+      id: 2,
       title: 'Glosario de Ingles tecnico',
       description: 'El glosario de Ingles tecnico es una pagina web que muestra terminos de ingles tecnico con su definicion, pronunciacion y ejemplo. Fue echo para los estudiantes de T.A.P.W (Tecnico Analista Programador Web) del Instituto Lacademia para que puedan colaborar en el desarrollo de la pagina web y aprender a pronuncia terminos de ingles.',
       image: 'images/Glosario.png',
@@ -12,7 +21,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 2,
+      id: 3,
       title: 'StudyLoop',
       description: 'StudyLoop es una aplicación web progresiva (PWA) diseñada para ayudar a los estudiantes a organizar su vida académica de manera eficiente. Con una interfaz moderna y funcionalidades intuitivas, StudyLoop se convierte en tu compañero ideal para el éxito académico.',
       image: 'images/StudyLoop.png',
@@ -21,7 +30,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 3,
+      id: 4,
       title: 'Web UX/ONE',
       description: 'Desarrollo de una pagina web profesional para la empresa de diseño y desarrolo web UX/ONE.',
       image: 'images/uxone.png',
@@ -30,7 +39,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Happy Store - Tienda Online',
       description: 'Happy Store es un Software de Tienda Online con panel de administrador y catalogo de productos te permite gestionar tus datos del local, productos, usuarios, marcas, categorias y talles, mostrando los productos en el catalogo visible para invitados o usuarios registrados.',
       image: 'images/HappyStore.png',
@@ -39,7 +48,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Juego de Cubo Rubik',
       description: 'Juego web de Cubo Rubik con movimientos y ranking.',
       image: 'images/CuboRubik.png',
@@ -48,7 +57,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Aplicación del Clima',
       description: 'Aplicación que muestra el pronóstico del tiempo en tiempo real usando una API externa.',
       image: 'images/Clima.png',
@@ -57,7 +66,7 @@ const CONFIG = {
       code: '#'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Juego de Trivia',
       description: 'Juego web de Trivia con preguntas, verdadero o falso y ranking.',
       image: 'images/Trivia.png',
