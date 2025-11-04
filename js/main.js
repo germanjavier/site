@@ -2,15 +2,15 @@
 const CONFIG = {
   // Proyectos que se mostrarán en la sección de proyectos
   projects: [
-    {
-      id: 1,
-      title: 'Libreria de Componentes',
-      description: 'Libreria de componentes para React.js de codigo abierto.',
-      image: 'images/ComponentUI.png',
-      tags: ['TypeScript', 'Next.js', 'Tailwind', 'Vite'],
-      demo: 'https://component-ui-io.vercel.app/',
-      code: '#',
-    },
+    // {
+    //   id: 1,
+    //   title: 'Libreria de Componentes',
+    //   description: 'Libreria de componentes para React.js de codigo abierto.',
+    //   image: 'images/ComponentUI.png',
+    //   tags: ['TypeScript', 'Next.js', 'Tailwind', 'Vite'],
+    //   demo: 'https://component-ui-io.vercel.app/',
+    //   code: '#',
+    // },
     {
       id: 2,
       title: 'Glosario de Ingles tecnico',
