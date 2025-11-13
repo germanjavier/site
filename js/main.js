@@ -4,11 +4,11 @@ const CONFIG = {
   projects: [
     {
       id: 1,
-      title: 'Chat de Lumina',
+      title: 'Chat de Con Mark AI',
       description: 'Chat de IA para la empresa de diseño y desarrolo web UX/ONE.',
       image: 'images/ChatLumina.png',
       tags: ['Javascript', 'Next.js', 'Tailwind'],
-      demo: 'https://chat-lumina-ai.vercel.app/',
+      demo: 'https://chat-mark-ai.vercel.app/',
       code: '#',
     },
     {
