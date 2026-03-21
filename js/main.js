@@ -3,9 +3,27 @@ const CONFIG = {
   // Proyectos que se mostrarán en la sección de proyectos
   projects: [
     {
+      id: 0,
+      title: 'Altoque',
+      description: 'Plataforma web de compras por proximidad con geolocalización en tiempo real y algoritmos de recomendación avanzados.',
+      image: 'images/Altoque.png',
+      tags: ['Javascript', 'Next.js', 'Tailwind', 'Express', 'MongoDB'],
+      demo: 'https://altoque-ar.vercel.app/',
+      code: '#',
+    },
+    {
+      id: 9,
+      title: 'Altoque Eats',
+      description: 'Plataforma de pedidos para locales con sistema integrado de WhatsApp y gestión de ventas. Registro exclusivo para comercios.',
+      image: 'images/Altoque-eats.png',
+      tags: ['React', 'Tailwind', 'MongoDB', 'JavaScript'],
+      demo: '#',
+      code: '#',
+    },
+    {
       id: 1,
       title: 'Chat de Con Mark AI',
-      description: 'Chat de IA para la empresa de diseño y desarrolo web UX/ONE.',
+      description: 'Una IA de creación de webs y herramientas de IA.',
       image: 'images/ChatLumina.png',
       tags: ['Javascript', 'Next.js', 'Tailwind'],
       demo: 'https://chat-mark-ai.vercel.app/',
@@ -14,7 +32,7 @@ const CONFIG = {
     {
       id: 2,
       title: 'Glosario de Ingles tecnico',
-      description: 'El glosario de Ingles tecnico es una pagina web que muestra terminos de ingles tecnico con su definicion, pronunciacion y ejemplo. Fue echo para los estudiantes de T.A.P.W (Tecnico Analista Programador Web) del Instituto Lacademia para que puedan colaborar en el desarrollo de la pagina web y aprender a pronuncia terminos de ingles.',
+      description: 'Diccionario interactivo de términos técnicos en inglés con definiciones, pronunciación y ejemplos para estudiantes de programación.',
       image: 'images/Glosario.png',
       tags: ['HTML', 'CSS', 'Javascript', 'JSON'],
       demo: 'https://germanjavier.github.io/glosario-io/',
@@ -23,7 +41,7 @@ const CONFIG = {
     {
       id: 3,
       title: 'StudyLoop',
-      description: 'StudyLoop es una aplicación web progresiva (PWA) diseñada para ayudar a los estudiantes a organizar su vida académica de manera eficiente. Con una interfaz moderna y funcionalidades intuitivas, StudyLoop se convierte en tu compañero ideal para el éxito académico.',
+      description: 'Aplicación Web Progresiva (PWA) para que estudiantes organicen su vida académica de manera eficiente e intuitiva.',
       image: 'images/StudyLoop.png',
       tags: ['Vue.js', 'CSS', 'Tailwind', 'JavaScript', 'Vite'],
       demo: 'https://u-x-o-n-e.github.io/Focus-App/',
@@ -41,7 +59,7 @@ const CONFIG = {
     {
       id: 5,
       title: 'Happy Store - Tienda Online',
-      description: 'Happy Store es un Software de Tienda Online con panel de administrador y catalogo de productos te permite gestionar tus datos del local, productos, usuarios, marcas, categorias y talles, mostrando los productos en el catalogo visible para invitados o usuarios registrados.',
+      description: 'Software de tienda online con panel administrativo completo para la gestión de productos, inventario y usuarios con catálogo interactivo.',
       image: 'images/HappyStore.png',
       tags: ['SQL', 'Javascript', 'CSS', 'PHP', 'TailWind'],
       demo: 'https://tokiourban.infinityfreeapp.com/index.php',
@@ -64,15 +82,6 @@ const CONFIG = {
       tags: ['HTML', 'JavaScript', 'API', 'Tailwind'],
       demo: 'https://germanjavier.github.io/clima-io/',
       code: '#'
-    },
-    {
-      id: 8,
-      title: 'Juego de Trivia',
-      description: 'Juego web de Trivia con preguntas, verdadero o falso y ranking.',
-      image: 'images/Trivia.png',
-      tags: ['HTML', 'CSS', 'Javacript'],
-      demo: 'https://german-javier.github.io/trivia/',
-      code: '#'
     }
   ]
 };
@@ -83,11 +92,11 @@ class PortfolioApp {
     this.menuOpen = false;
     this.lastScrollTop = 0;
     this.cleanupFunctions = []; // Array para almacenar funciones de limpieza
-    
+
     // Inicializar la aplicación
     this.init();
   }
-  
+
   // Inicializar la aplicación
   init() {
     // Inicializar componentes
@@ -102,11 +111,11 @@ class PortfolioApp {
     this.initSkillsFilter();
     this.initGitHubRepos();
     this.setupEventListeners();
-    
+
     // Inicializar animaciones
     this.animateOnScroll();
   }
-  
+
   // Inicializar la barra de navegación
   initNavbar() {
     const header = document.querySelector('.header');
@@ -115,14 +124,14 @@ class PortfolioApp {
     const navMenuContainer = document.querySelector('.nav-menu-container');
     const navLinks = document.querySelectorAll('.nav-link');
     let navOverlay = document.querySelector('.nav-overlay');
-    
+
     // Crear overlay si no existe
     if (!navOverlay) {
       navOverlay = document.createElement('div');
       navOverlay.className = 'nav-overlay';
       document.body.appendChild(navOverlay);
     }
-    
+
     // Añadir clase scrolled al header al hacer scroll
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -131,11 +140,11 @@ class PortfolioApp {
         header.classList.remove('scrolled');
       }
     };
-    
+
     // Manejar el estado del menú
     const toggleMenu = (open) => {
       this.menuOpen = open !== undefined ? open : !this.menuOpen;
-      
+
       if (this.menuOpen) {
         // Abrir menú
         document.body.style.overflow = 'hidden';
@@ -143,10 +152,10 @@ class PortfolioApp {
         navMenuContainer.classList.add('active');
         navMenu.classList.add('active');
         navOverlay.classList.add('active');
-        
+
         // Forzar repintado para activar la transición
         navMenuContainer.offsetHeight;
-        
+
         // Activar animaciones de los ítems
         setTimeout(() => {
           navMenu.classList.add('animating');
@@ -158,20 +167,20 @@ class PortfolioApp {
         navMenuContainer.classList.remove('active');
         navOverlay.classList.remove('active');
         document.body.style.overflow = '';
-        
+
         // Quitar la clase active después de la animación
         setTimeout(() => {
           navMenu.classList.remove('active');
         }, 500);
       }
     };
-    
+
     // Alternar menú móvil
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
     });
-    
+
     // Cerrar menú al hacer clic en un enlace
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
@@ -180,10 +189,10 @@ class PortfolioApp {
         if (target) {
           e.preventDefault();
           toggleMenu(false);
-          
+
           // Desplazamiento suave al hacer clic en un enlace
           setTimeout(() => {
-            target.scrollIntoView({ 
+            target.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
             });
@@ -191,19 +200,19 @@ class PortfolioApp {
         }
       });
     });
-    
+
     // Cerrar menú al hacer clic en el overlay
     navOverlay.addEventListener('click', () => {
       toggleMenu(false);
     });
-    
+
     // Cerrar menú al presionar la tecla Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.menuOpen) {
         toggleMenu(false);
       }
     });
-    
+
     // Cerrar menú al redimensionar la ventana
     let resizeTimer;
     const handleResize = () => {
@@ -212,19 +221,19 @@ class PortfolioApp {
       resizeTimer = setTimeout(() => {
         document.body.classList.remove('resize-animation-stopper');
       }, 100);
-      
+
       if (window.innerWidth > 992) {
         toggleMenu(false);
       }
     };
-    
+
     // Configurar event listeners
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-    
+
     // Inicializar estado del header
     handleScroll();
-    
+
     // Limpiar event listeners al destruir
     this.cleanupFunctions.push(() => {
       window.removeEventListener('scroll', handleScroll);
@@ -232,18 +241,18 @@ class PortfolioApp {
       navOverlay.remove();
     });
   }
-  
+
   // Inicializar animaciones de revelación al hacer scroll
   initScrollReveal() {
     // Configuración básica para las animaciones
     this.animateOnScroll();
-    
+
     // Observar elementos para animaciones de intersección
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -251,38 +260,38 @@ class PortfolioApp {
         }
       });
     }, observerOptions);
-    
+
     // Observar elementos con la clase 'fade-in'
     document.querySelectorAll('.fade-in').forEach((el) => {
       observer.observe(el);
     });
   }
-  
+
   // Inicializar la sección de proyectos
   initProjects() {
     const projectsGrid = document.querySelector('.projects-grid');
-    
+
     if (!projectsGrid) return;
-    
+
     // Limpiar el contenedor
     projectsGrid.innerHTML = '';
-    
+
     // Generar el HTML para cada proyecto
     CONFIG.projects.forEach(project => {
       const projectElement = this.createProjectElement(project);
       projectsGrid.appendChild(projectElement);
     });
   }
-  
+
   // Crear elemento HTML para un proyecto
   createProjectElement(project) {
     const projectElement = document.createElement('div');
     projectElement.className = 'project-card fade-in';
     projectElement.style.animationDelay = `${project.id * 0.1}s`;
-    
+
     // Crear etiquetas HTML
     const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
-    
+
     // Plantilla del proyecto
     projectElement.innerHTML = `
       <div class="project-image">
@@ -299,64 +308,64 @@ class PortfolioApp {
         </div>
       </div>
     `;
-    
+
     return projectElement;
   }
-  
+
   // Inicializar el formulario de contacto
   initContactForm() {
     const contactForm = document.getElementById('contact-form');
-    
+
     if (!contactForm) return;
-    
+
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       // Obtener los valores del formulario
       const formData = new FormData(contactForm);
       const formValues = {};
-      
+
       for (let [key, value] of formData.entries()) {
         formValues[key] = value;
       }
-      
+
       // Aquí iría la lógica para enviar el formulario
       console.log('Formulario enviado:', formValues);
-      
+
       // Mostrar mensaje de éxito
       this.showNotification('¡Mensaje enviado con éxito!', 'success');
-      
+
       // Restablecer el formulario
       contactForm.reset();
     });
   }
-  
+
   // Mostrar notificación
   showNotification(message, type = 'success') {
     // Crear elemento de notificación
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     // Agregar al cuerpo del documento
     document.body.appendChild(notification);
-    
+
     // Mostrar con animación
     setTimeout(() => {
       notification.classList.add('show');
     }, 100);
-    
+
     // Eliminar después de 5 segundos
     setTimeout(() => {
       notification.classList.remove('show');
-      
+
       // Eliminar del DOM después de la animación
       setTimeout(() => {
         notification.remove();
       }, 300);
     }, 5000);
   }
-  
+
   // Inicializar botón de scroll al inicio
   initScrollTop() {
     const scrollTopBtn = document.createElement('button');
@@ -364,7 +373,7 @@ class PortfolioApp {
     scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     scrollTopBtn.setAttribute('aria-label', 'Volver arriba');
     document.body.appendChild(scrollTopBtn);
-    
+
     // Mostrar/ocultar botón al hacer scroll
     window.addEventListener('scroll', () => {
       if (window.pageYOffset > 300) {
@@ -373,7 +382,7 @@ class PortfolioApp {
         scrollTopBtn.classList.remove('show');
       }
     });
-    
+
     // Desplazamiento suave al hacer clic
     scrollTopBtn.addEventListener('click', () => {
       window.scrollTo({
@@ -382,17 +391,17 @@ class PortfolioApp {
       });
     });
   }
-  
+
   // Inicializar contadores de la sección Sobre Mí
   initCounters() {
     const counters = document.querySelectorAll('.stat-number');
     const speed = 200; // Velocidad de la animación
-    
+
     const animateCounter = (counter) => {
       const target = parseInt(counter.getAttribute('data-target'));
       const count = parseInt(counter.innerText);
       const increment = target / speed;
-      
+
       if (count < target) {
         counter.innerText = Math.ceil(count + increment);
         setTimeout(() => animateCounter(counter), 5);
@@ -400,7 +409,7 @@ class PortfolioApp {
         counter.innerText = target;
       }
     };
-    
+
     // Observar cuando los contadores son visibles
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -413,13 +422,13 @@ class PortfolioApp {
         }
       });
     }, { threshold: 0.5 });
-    
+
     // Observar cada contador
     counters.forEach(counter => {
       observer.observe(counter);
     });
   }
-  
+
   // Inicializar año actual en el footer
   initCurrentYear() {
     const yearElement = document.getElementById('current-year');
@@ -463,92 +472,9 @@ class PortfolioApp {
       `;
     };
 
-    // Función para obtener el color del lenguaje de programación
+    // Función para obtener el color del lenguaje de programación (Minimalista B&W)
     const getLanguageColor = (language) => {
-      const colors = {
-        'JavaScript': '#f1e05a',
-        'TypeScript': '#2b7489',
-        'HTML': '#e34c26',
-        'CSS': '#563d7c',
-        'PHP': '#4F5D95',
-        'Python': '#3572A5',
-        'Java': '#b07219',
-        'C++': '#f34b7d',
-        'C#': '#178600',
-        'Ruby': '#701516',
-        'Go': '#00ADD8',
-        'Swift': '#ffac45',
-        'Kotlin': '#A97BFF',
-        'Rust': '#dea584',
-        'Shell': '#89e051',
-        'Dockerfile': '#384d54',
-        'Vue': '#41b883',
-        'React': '#61dafb',
-        'Angular': '#dd0031',
-        'Svelte': '#ff3e00',
-        'Dart': '#00B4AB',
-        'Elixir': '#6e4a7e',
-        'Scala': '#c22d40',
-        'Haskell': '#5e5086',
-        'Clojure': '#db5855',
-        'R': '#198CE7',
-        'Lua': '#000080',
-        'Perl': '#0298c3',
-        'PowerShell': '#012456',
-        'Objective-C': '#438eff',
-        'Roff': '#ecdebe',
-        'TeX': '#3D6117',
-        'Vim script': '#199f4b',
-        'Assembly': '#6E4C13',
-        'C': '#555555',
-        'C++': '#f34b7d',
-        'C#': '#178600',
-        'CMake': '#DA3434',
-        'CoffeeScript': '#244776',
-        'Crystal': '#000100',
-        'D': '#ba595e',
-        'Elm': '#60B5CC',
-        'Emacs Lisp': '#c065db',
-        'Erlang': '#B83998',
-        'F#': '#b845fc',
-        'Fortran': '#4d41b1',
-        'GDScript': '#355570',
-        'Gherkin': '#5B2063',
-        'GLSL': '#5686A5',
-        'Groovy': '#e69f56',
-        'HCL': '#844FBA',
-        'Jupyter Notebook': '#DA5B0B',
-        'Makefile': '#427819',
-        'Markdown': '#083fa1',
-        'MATLAB': '#e16737',
-        'Nim': '#ffc200',
-        'Nix': '#7e7eff',
-        'OCaml': '#3be133',
-        'Pascal': '#E3F171',
-        'Prolog': '#74283c',
-        'Puppet': '#302B6D',
-        'PureScript': '#1D222D',
-        'QML': '#44a51c',
-        'Racket': '#3c5caa',
-        'Raku': '#0000fb',
-        'ReScript': '#ed5051',
-        'Ruby': '#701516',
-        'Rust': '#dea584',
-        'Sass': '#a53b70',
-        'Solidity': '#AA6746',
-        'Starlark': '#76d275',
-        'Svelte': '#ff3e00',
-        'Swift': '#F05138',
-        'Tcl': '#e4cc98',
-        'Twig': '#c1d026',
-        'TypeScript': '#2b7489',
-        'Vala': '#a56de2',
-        'Verilog': '#b2b7f8',
-        'Vue': '#41b883',
-        'WebAssembly': '#04133b',
-        'Zig': '#ec915c'
-      };
-      return colors[language] || '#cccccc';
+      return '#333333';
     };
 
     // Función para formatear la fecha
@@ -561,7 +487,7 @@ class PortfolioApp {
     const createRepoCard = (repo) => {
       const language = repo.language || 'Otro';
       const languageColor = getLanguageColor(language);
-      
+
       return `
         <div class="repo-card">
           <div class="repo-header">
@@ -622,23 +548,23 @@ class PortfolioApp {
     const fetchRepos = async () => {
       try {
         showSkeletons();
-        
+
         // Hacer la petición a la API de GitHub
         const response = await fetch('https://api.github.com/users/germanjavier/repos?sort=updated&direction=desc&per_page=6');
-        
+
         if (!response.ok) {
           throw new Error(`Error HTTP: ${response.status}`);
         }
-        
+
         const repos = await response.json();
-        
+
         // Filtrar solo los repositorios que no son forks y tienen descripción
-        const filteredRepos = repos.filter(repo => 
-          !repo.fork && 
-          !repo.archived && 
+        const filteredRepos = repos.filter(repo =>
+          !repo.fork &&
+          !repo.archived &&
           (repo.language || repo.description)
         );
-        
+
         // Mostrar los primeros 6 repositorios
         if (filteredRepos.length > 0) {
           reposContainer.innerHTML = filteredRepos.slice(0, 6).map(createRepoCard).join('');
@@ -666,13 +592,13 @@ class PortfolioApp {
   initSkillsFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const techItems = document.querySelectorAll('.tech-item');
-    
+
     // Función para filtrar elementos
     const filterItems = (category) => {
       techItems.forEach(item => {
         // Agregar clase de transición de salida
         item.classList.add('fade-out');
-        
+
         // Después de la animación de salida, actualizar visibilidad
         setTimeout(() => {
           if (category === 'all' || item.dataset.category === category) {
@@ -699,42 +625,42 @@ class PortfolioApp {
       });
     });
   }
-  
+
   // Inicializar desplazamiento suave para enlaces internos
   initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
-        
+
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
-        
+
         if (targetElement) {
           // Obtener la posición del elemento objetivo
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-          
+
           // Obtener la altura del encabezado fijo
           const headerHeight = document.querySelector('.header').offsetHeight;
-          
+
           // Calcular la posición final restando la altura del encabezado
           const finalPosition = targetPosition - headerHeight - 20; // 20px de espacio adicional
-          
+
           // Desplazamiento suave
           window.scrollTo({
             top: finalPosition,
             behavior: 'smooth'
           });
-          
+
           // Actualizar la URL sin recargar la página
           history.pushState(null, null, targetId);
         }
       });
     });
   }
-  
+
   // Configurar manejadores de eventos
   setupEventListeners() {
     // Cerrar menú al hacer clic fuera de él
@@ -743,47 +669,47 @@ class PortfolioApp {
         this.toggleMenu();
       }
     });
-    
+
     // Cerrar menú al cambiar el tamaño de la ventana
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && this.menuOpen) {
         this.toggleMenu();
       }
     });
-    
+
     // Cambiar estilo del header al hacer scroll
     window.addEventListener('scroll', () => {
       this.handleScroll();
     });
   }
-  
+
   // Manejar el evento de scroll
   handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     // Mostrar/ocultar header al hacer scroll
     if (scrollTop > 100) {
       this.header.classList.add('scrolled');
     } else {
       this.header.classList.remove('scrolled');
     }
-    
+
     // Actualizar enlaces de navegación activos
     this.updateActiveNavLink();
-    
+
     this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }
-  
+
   // Actualizar enlace de navegación activo
   updateActiveNavLink() {
     const scrollPosition = window.scrollY + 100;
-    
+
     // Iterar sobre cada sección
     document.querySelectorAll('section').forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
       const sectionId = section.getAttribute('id');
-      
+
       if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
         // Actualizar enlace activo
         document.querySelectorAll('.nav-link').forEach(link => {
@@ -795,21 +721,21 @@ class PortfolioApp {
       }
     });
   }
-  
+
   // Animar elementos al hacer scroll
   animateOnScroll() {
     const elements = document.querySelectorAll('.fade-in');
-    
+
     elements.forEach(element => {
       const elementPosition = element.getBoundingClientRect().top;
       const screenPosition = window.innerHeight / 1.3;
-      
+
       if (elementPosition < screenPosition) {
         element.classList.add('visible');
       }
     });
   }
-  
+
   // Limpiar recursos
   cleanup() {
     // Ejecutar todas las funciones de limpieza
@@ -822,20 +748,20 @@ class PortfolioApp {
 document.addEventListener('DOMContentLoaded', () => {
   // Iniciar la aplicación
   window.app = new PortfolioApp();
-  
+
   // Limpiar recursos antes de que se cierre la página
   window.addEventListener('beforeunload', () => {
     if (window.app && typeof window.app.cleanup === 'function') {
       window.app.cleanup();
     }
   });
-  
+
   // Inicializar tooltips
   const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
-  
+
   // Inicializar popovers
   const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
   popoverTriggerList.map(function (popoverTriggerEl) {
