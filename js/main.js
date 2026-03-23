@@ -17,7 +17,7 @@ const CONFIG = {
       description: 'Plataforma de pedidos para locales con sistema integrado de WhatsApp y gestión de ventas. Registro exclusivo para comercios.',
       image: 'images/Altoque-eats.png',
       tags: ['React', 'Tailwind', 'MongoDB', 'JavaScript'],
-      demo: '#',
+      demo: 'https://al-toque-eats.vercel.app/',
       code: '#',
     },
     {
