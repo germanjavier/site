@@ -100,6 +100,7 @@ class PortfolioApp {
   // Inicializar la aplicación
   init() {
     // Inicializar componentes
+    this.initPreloader();
     this.initNavbar();
     this.initScrollReveal();
     this.initProjects();
@@ -114,6 +115,22 @@ class PortfolioApp {
 
     // Inicializar animaciones
     this.animateOnScroll();
+  }
+
+  // Inicializar el preloader
+  initPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (!preloader) return;
+
+    // Deshabilitar scroll mientras carga
+    document.body.style.overflow = 'hidden';
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        document.body.style.overflow = '';
+      }, 1000);
+    });
   }
 
   // Inicializar la barra de navegación
