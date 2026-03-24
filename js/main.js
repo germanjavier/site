@@ -111,6 +111,7 @@ class PortfolioApp {
     this.initSmoothScroll();
     this.initSkillsFilter();
     this.initGitHubRepos();
+    this.initTheme();
     this.setupEventListeners();
 
     // Inicializar animaciones
@@ -678,22 +679,36 @@ class PortfolioApp {
     });
   }
 
+  // Inicializar tema claro/oscuro
+  initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    if (!themeToggle) return;
+
+    // Verificar si hay un tema guardado
+    const savedTheme = localStorage.getItem('theme');
+    // Preferencia del sistema si no hay tema guardado
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      body.classList.add('dark-theme');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+
+      // Guardar preferencia
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+
   // Configurar manejadores de eventos
   setupEventListeners() {
-    // Cerrar menú al hacer clic fuera de él
-    document.addEventListener('click', (e) => {
-      if (this.menuOpen && !this.menuToggle.contains(e.target) && !this.navLinks.contains(e.target)) {
-        this.toggleMenu();
-      }
-    });
-
-    // Cerrar menú al cambiar el tamaño de la ventana
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && this.menuOpen) {
-        this.toggleMenu();
-      }
-    });
-
     // Cambiar estilo del header al hacer scroll
     window.addEventListener('scroll', () => {
       this.handleScroll();
@@ -703,13 +718,6 @@ class PortfolioApp {
   // Manejar el evento de scroll
   handleScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Mostrar/ocultar header al hacer scroll
-    if (scrollTop > 100) {
-      this.header.classList.add('scrolled');
-    } else {
-      this.header.classList.remove('scrolled');
-    }
 
     // Actualizar enlaces de navegación activos
     this.updateActiveNavLink();
