@@ -5,19 +5,19 @@ const CONFIG = {
     {
       id: 0,
       title: 'Altoque',
-      description: 'Plataforma web de compras por proximidad con geolocalización en tiempo real y algoritmos de recomendación avanzados.',
+      description: 'Web oficial de Al Toque - Agencia de desarrollo web especializada en crear soluciones digitales personalizadas, aplicaciones móviles y plataformas de comercio electrónico para emprendedores y negocios locales.',
       image: 'images/Altoque.png',
       tags: ['Javascript', 'Next.js', 'Tailwind', 'Express', 'MongoDB'],
-      demo: 'https://altoque-ar.vercel.app/',
+      demo: 'https://altoque-web.vercel.app/',
       code: '#',
     },
     {
       id: 9,
-      title: 'Altoque Eats',
-      description: 'Plataforma de pedidos para locales con sistema integrado de WhatsApp y gestión de ventas. Registro exclusivo para comercios.',
+      title: 'Al Toque',
+      description: 'Sistema de pedidos para locales de comida rápida con geolocalización en tiempo real, algoritmos de recomendación avanzados y gestión de ventas integrada.',
       image: 'images/Altoque-eats.png',
       tags: ['React', 'Tailwind', 'MongoDB', 'JavaScript'],
-      demo: 'https://al-toque-eats.vercel.app/',
+      demo: 'https://altoque-ar.vercel.app/store/login',
       code: '#',
     },
     // {
@@ -72,6 +72,15 @@ const CONFIG = {
       image: 'images/CuboRubik.png',
       tags: ['HTML', 'CSS', 'Javacript'],
       demo: 'https://germanjavier.github.io/cube/dist/',
+      code: '#'
+    },
+    {
+      id: 8,
+      title: 'Andromeda',
+      description: 'Agencia de desarrollo web creada por mí, especializada en diseño moderno, desarrollo frontend/backend y soluciones digitales escalables para empresas y emprendedores.',
+      image: 'images/andromeda.png',
+      tags: ['Next.js', 'React', 'Tailwind', 'TypeScript'],
+      demo: 'https://andromeda-ar.vercel.app/',
       code: '#'
     },
     {
