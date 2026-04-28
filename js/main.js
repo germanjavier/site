@@ -5,7 +5,7 @@ const CONFIG = {
     {
       id: 0,
       title: 'Altoque',
-      description: 'Web oficial de Al Toque - Agencia de desarrollo web especializada en crear soluciones digitales personalizadas, aplicaciones móviles y plataformas de comercio electrónico para emprendedores y negocios locales.',
+      description: 'Landing page oficial de Al Toque - sistema de pedidos para locales de comida rápida. Web informativa que presenta la plataforma de pedidos con geolocalización y gestión de ventas integrada.',
       image: 'images/Altoque.png',
       tags: ['Javascript', 'Next.js', 'Tailwind', 'Express', 'MongoDB'],
       demo: 'https://altoque-web.vercel.app/',
@@ -50,7 +50,7 @@ const CONFIG = {
     {
       id: 4,
       title: 'Web UX/ONE',
-      description: 'Desarrollo de una pagina web profesional para la empresa de diseño y desarrolo web UX/ONE.',
+      description: 'Agencia de diseño y desarrollo web creada por mí, especializada en experiencias digitales modernas y soluciones web personalizadas para emprendedores y negocios.',
       image: 'images/uxone.png',
       tags: ['Vite', 'CSS', 'Vue.js'],
       demo: 'https://u-x-o-n-e.github.io/uxone/',
