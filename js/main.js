@@ -4,19 +4,19 @@ const CONFIG = {
   projects: [
     {
       id: 0,
-      title: 'Altoque',
+      title: 'Al Toque Web',
       description: 'Landing page oficial de Al Toque - sistema de pedidos para locales de comida rápida. Web informativa que presenta la plataforma de pedidos con geolocalización y gestión de ventas integrada.',
       image: 'images/Altoque.png',
-      tags: ['Javascript', 'Next.js', 'Tailwind', 'Express', 'MongoDB'],
+      tags: ['Next.js', 'CSS3'],
       demo: 'https://altoque-web.vercel.app/',
       code: '#',
     },
     {
       id: 9,
       title: 'Al Toque',
-      description: 'Sistema de pedidos para locales de comida rápida con geolocalización en tiempo real, algoritmos de recomendación avanzados y gestión de ventas integrada.',
+      description: 'Sistema de pedidos para locales de comida rápidautilizando API de WhatSapp para recibir pedidos.',
       image: 'images/Altoque-eats.png',
-      tags: ['React', 'Tailwind', 'MongoDB', 'JavaScript'],
+      tags: ['Next.js', 'CSS3', 'MongoDB', 'Express'],
       demo: 'https://altoque-ar.vercel.app/store/login',
       code: '#',
     },
