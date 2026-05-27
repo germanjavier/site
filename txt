@@ -1,0 +1,1 @@
+puedes crear dentro del app al igual que la herramienta de versionado una de commit que haga commit automaticos con ai no los pushee soo hace el git add . o -A y git commit con el mensaje es posible y que use IA solo dime si es posible

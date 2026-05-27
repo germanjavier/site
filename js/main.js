@@ -212,18 +212,22 @@ class PortfolioApp {
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.stopPropagation();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          toggleMenu(false);
 
-          // Desplazamiento suave al hacer clic en un enlace
-          setTimeout(() => {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }, 100);
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            toggleMenu(false);
+
+            // Desplazamiento suave al hacer clic en un enlace
+            setTimeout(() => {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }, 100);
+          }
         }
       });
     });
@@ -296,7 +300,7 @@ class PortfolioApp {
 
   // Inicializar la sección de proyectos
   initProjects() {
-    const projectsGrid = document.querySelector('.projects-grid');
+    const projectsGrid = document.querySelector('#projects .projects-grid');
 
     if (!projectsGrid) return;
 

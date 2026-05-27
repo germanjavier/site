@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es" prefix="og: https://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>Cursos — German Javier</title>
+    <meta name="title" content="Cursos — German Javier" />
+    <meta name="description"
+        content="Cursos sobre desarrollo web. Aprende a crear tu primera web y dominar tecnologías modernas como HTML, CSS y JavaScript." />
+    <meta name="author" content="German Javier">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../images/germanjavier-isotipo.svg">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Course Detail Styles */
+        .course-hero {
+            display: grid;
+            gap: 40px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+        }
+
+        @media (min-width: 900px) {
+            .course-hero {
+                grid-template-columns: 1fr 1fr;
+                align-items: start;
+                gap: 50px;
+            }
+        }
+
+        .course-image-wrapper {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: none;
+            height: 450px;
+            /* Fixed card height */
+        }
+
+        .course-image-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        ul.checklist {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        ul.checklist li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+
+        ul.checklist li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #25D366;
+        }
+
+        .whatsapp-cta {
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            /* Evita que el texto y el ícono se corten en móviles muy pequeños */
+            gap: 10px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .whatsapp-cta:hover {
+            color: #fff;
+            background: #20BA56;
+            /* Un leve oscurecimiento nativo pero sin shadow general */
+        }
+
+        .contact-box {
+            background: var(--surface-2);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .contact-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 25px;
+        }
+
+        .contact-box ul li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-box ul li i {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            width: 24px;
+            text-align: center;
+        }
+
+        .contact-box a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+
+        .contact-box a:hover {
+            color: var(--accent);
+        }
+
+        /* Course Extended Layout Styles */
+        .course-section {
+            padding: 60px 0;
+        }
+
+        .course-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .course-highlight-box {
+            background: var(--surface-1);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-container {
+            position: relative;
+            padding-left: 35px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: var(--primary-color);
+            opacity: 0.3;
+            border-radius: 3px;
+        }
+
+        .course-class-block {
+            background: var(--surface-2);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .course-class-block.fade-in {
+            animation: none !important;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .course-class-block.fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 7px;
+            top: 20px;
+            width: 3px;
+            background: var(--primary-color);
+            height: 0%;
+            border-radius: 3px;
+            z-index: 1;
+            transition: height 0.1s ease-out;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .course-class-block::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 30px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--surface-2);
+            border: 4px solid var(--border-color);
+            box-shadow: 0 0 0 2px var(--surface-1);
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+
+        .course-class-block.visible::before {
+            background: var(--primary-color);
+            border-color: var(--surface-1);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .course-class-block h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .course-class-block p {
+            margin-bottom: 15px;
+        }
+
+        .course-class-block ul {
+            margin-bottom: 0;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+            }
+        })();
+    </script>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-shape">
+                <div class="loader-morph"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stars"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-brand">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M12 1.992a10 10 0 1 0 9.236 13.838c.341-.82-.476-1.644-1.298-1.31a6.5 6.5 0 0 1-6.864-10.787l.077-.08c.551-.63.113-1.653-.758-1.653h-.266l-.068-.006z" />
+                    </svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="display: none;">
+                        <g fill="none">
+                            <path
+                                d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+                            <path fill="currentColor"
+                                d="M12 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1m6.364-2.05l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414m-12.728 0a1 1 0 0 1 1.497 1.32l-.083.094l-.707.707a1 1 0 0 1-1.497-1.32l.083-.094zM12 6a6 6 0 1 1 0 12a6 6 0 0 1 0-12m-8 5a1 1 0 0 1 .117 1.993L4 13H3a1 1 0 0 1-.117-1.993L3 11zm17 0a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM4.929 4.929a1 1 0 0 1 1.32-.083l.094.083l.707.707a1 1 0 0 1-1.32 1.497l-.094-.083l-.707-.707a1 1 0 0 1 0-1.414m14.142 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0M12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1" />
+                        </g>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="nav-menu-container">
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html#home" class="nav-link">
+                            <span class="nav-link-text">Inicio</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#about" class="nav-link">
+                            <span class="nav-link-text">Sobre Mí</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#projects" class="nav-link">
+                            <span class="nav-link-text">Proyectos</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#cursos" class="nav-link active" data-section="cursos">
+                            <span class="nav-link-text">Cursos</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#skills" class="nav-link">
+                            <span class="nav-link-text">Skills</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../index.html#contact" class="nav-link">
+                            <span class="nav-link-text">Contacto</span>
+                            <span class="nav-link-line"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-actions">
+                <div class="nav-toggle" id="nav-toggle" aria-label="Menú de navegación">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cursos Section -->
+    <section id="cursos" class="projects">
+        <div class="container" style="padding-top: 80px;">
+            <h2 class="section-title">Curso: <span class="highlight">Mi Primera Web</span></h2>
+
+            <div class="course-hero fade-in">
+                <!-- Left: Course Image -->
+                <div class="course-image-wrapper">
+                    <img src="curso-german.png" alt="Curso Mi Primera Web">
+                </div>
+
+                <!-- Right: High Level Pitch & CTA -->
+                <div class="modal-content-left">
+                    <p style="font-size: 1.2rem; margin-bottom: 25px; line-height: 1.7; color: var(--text-color);">
+                        <strong>100% aplicado y enfocado en resultados:</strong> Te vas del curso con tu propia página
+                        web funcionando en internet, creada con tus propias manos. No te llevás un cuaderno lleno de
+                        notas, te llevás un proyecto real en la nube.
+                    </p>
+
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--primary-color);">Modalidad y
+                        Detalles</h3>
+                    <ul class="checklist">
+                        <li><strong>Duración:</strong> 7 Clases de 2.5 Horas.</li>
+                        <li><strong>Inversión:</strong> Pago único. Acceso a las 17 horas y media de clases en vivo por
+                            Zoom.</li>
+                        <li><strong>Metodología:</strong> 45 min concepto visual clave, 60 min código en vivo, 45 min
+                            consultas y feedback.</li>
+                        <li><strong>Requisitos:</strong> Ninguno, diseñado para cualquier edad sin conocimiento previo
+                            (14+ años).</li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+            <!-- Detailed Content Sections -->
+            <div class="course-narrow fade-in">
+
+                <!-- Qué vas a aprender -->
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">¿Qué vas a <span
+                        class="highlight">aprender?</span></h3>
+                <div class="course-highlight-box">
+                    <p>En estas 7 clases no vas a venir a memorizar teoría aburrida ni códigos gigantes. Vas a aprender
+                        a resolver un problema real utilizando la tecnología.</p>
+                    <p>Desde la primera clase vas a elegir una única actividad principal según tu propio objetivo, y
+                        todo lo que aprendas se aplicará directamente a ella:</p>
+                    <ul style="margin-bottom: 25px;">
+                        <li><span style="color: var(--primary-color);">■</span> Si querés mostrar tu trabajo al mundo:
+                            crear tu <strong>Portafolio o Web Personal</strong>.</li>
+                        <li><span style="color: var(--primary-color);">■</span> Si tenés un emprendimiento: diseñar la
+                            <strong>Web para tu Negocio</strong>.
+                        </li>
+                        <li><span style="color: var(--primary-color);">■</span> Si querés estudiar sistemas: entender
+                            las bases para entrar con ventaja a la unversidad.</li>
+                    </ul>
+
+                    <h4 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--primary-color);">El temario práctico
+                        incluye:</h4>
+                    <ul class="checklist">
+                        <li><strong>HTML5:</strong> Cómo armar el "esqueleto" y la estructura de forma moderna.</li>
+                        <li><strong>CSS3:</strong> Diseño y flexbox para lograr un aspecto profesional.</li>
+                        <li><strong>JavaScript:</strong> Interactividad (clics, formularios, lógica).</li>
+                        <li><strong>IA Aplicada:</strong> Usar IA (ChatGPT/Claude) como tu asistente de programación
+                            seguro.</li>
+                        <li><strong>Tu web en la Nube:</strong> Servidores reales (Netlify/Vercel) y dominios (.com).
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resumen de Herramientas -->
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">Requisitos <span
+                        class="highlight">Clase 1</span></h3>
+                <div class="course-highlight-box">
+                    <p>En los primeros minutos de la Clase 1, ocuparemos:</p>
+                    <ul class="checklist">
+                        <li><strong>Editor:</strong> Visual Studio Code (Instalado).</li>
+                        <li><strong>Navegador:</strong> Google Chrome o Firefox (Actualizados).</li>
+                        <li><strong>Cuentas gratuitas:</strong> Registro en ChatGPT (u otra IA) y Netlify o Vercel.</li>
+                    </ul>
+                </div>
+
+                <!-- Estructura del Curso (Classes 1-7) -->
+                <h3 class="section-title" style="font-size: 2rem; margin-top: 60px;">Programa de <span
+                        class="highlight">Clases</span></h3>
+                <div class="timeline-container">
+                    <div class="timeline-progress"></div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 1: El Plano de la Casa (Herramientas y Maquetado HTML)</h4>
+                        <p><strong>Enfoque:</strong> Entender cómo funciona la web y estructurar el contenido de su
+                            proyecto.</p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> ¿Cómo viaja una web por internet?
+                                HTML
+                                es el esqueleto, CSS la ropa, JS los músculos.</li>
+                            <li><span style="color: var(--primary-color);">■</span> Herramientas a instalar (En vivo):
+                                Visual Studio Code + Live Server.</li>
+                            <li><span style="color: var(--primary-color);">■</span> Estructura base moderna y etiquetas
+                                semánticas.</li>
+                            <li><em>Actividad Aplicada:</em> Cada alumno crea el esqueleto de su página principal.</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 2: Pintando la Web (Diseño y Estilos con CSS)</h4>
+                        <p><strong>Enfoque:</strong> Que dejen de ver texto plano y su proyecto empiece a verse
+                            profesional.
+                        </p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Conectar CSS con HTML y la anatomía
+                                de
+                                una regla CSS.</li>
+                            <li><span style="color: var(--primary-color);">■</span> El modelo de caja y Flexbox básico
+                                (la
+                                herramienta moderna indispensable).</li>
+                            <li><em>Actividad Aplicada:</em> Darle estilo a la estructura de la Clase 1, cambiar fondos
+                                y
+                                fuentes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 3: Darle Vida a la Web (Interactividad con JavaScript)</h4>
+                        <p><strong>Enfoque:</strong> Perderle el miedo al código y hacer que la web «reaccione».</p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Variables, Funciones y manipulación
+                                del
+                                DOM.</li>
+                            <li><span style="color: var(--primary-color);">■</span> Escuchar un clic:
+                                addEventListener('click', ...).</li>
+                            <li><em>Actividad Aplicada:</em> Añadir interacciones reales al proyecto (un "ver más",
+                                precios
+                                calculados o validadores básicos).</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 4: La Gran Integración (Uniendo los Tres Mundos)</h4>
+                        <p><strong>Enfoque:</strong> Consolidar lo aprendido y resolver el problema principal del
+                            proyecto
+                            fluídamente.</p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Flujo de trabajo: Idea → HTML → CSS
+                                →
+                                JS.</li>
+                            <li><span style="color: var(--primary-color);">■</span> Creación de una sección compleja
+                                como
+                                una Galería o Contacto.</li>
+                            <li><em>Actividad Aplicada:</em> Integración total de la web principal y resolución de
+                                errores
+                                en vivo.</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 5: El Copiloto Inteligente (Uso Seguro y Rendimiento con IA)</h4>
+                        <p><strong>Enfoque:</strong> Enseñarte a usar IA como un asistente, no como un reemplazo,
+                            cuidando
+                            tu seguridad.</p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Cómo pedirle código a una IA
+                                (Estructura
+                                de un prompt).</li>
+                            <li><span style="color: var(--primary-color);">■</span> El peligro del "Copiar y Pegar" y
+                                buenas
+                                prácticas de seguridad de Datos.</li>
+                            <li><em>Actividad Aplicada:</em> Los alumnos usan la IA para agregar una funcionalidad
+                                compleja
+                                (ej. Carrusel o Modo oscuro).</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in">
+                        <h4>Clase 6: Lanzamiento al Mundo (Nube, Dominios y Despliegue)</h4>
+                        <p><strong>Enfoque:</strong> Que el proyecto deje de vivir en la PC y cualquiera pueda verlo
+                            online.
+                        </p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Subida fácil en Vercel o Netlify
+                                (arrastrando la carpeta).</li>
+                            <li><span style="color: var(--primary-color);">■</span> Qué es un Hosting, Dominio y qué es
+                                el
+                                certificado SSL.</li>
+                            <li><em>Actividad Aplicada:</em> Cada participante sube su sitio a internet en vivo y se
+                                comparte en chat.</li>
+                        </ul>
+                    </div>
+
+                    <div class="course-class-block fade-in" style="margin-bottom: 50px;">
+                        <h4>Clase 7: El Mundo Laboral y Cierre de Proyectos</h4>
+                        <p><strong>Enfoque:</strong> Qué buscan las empresas enfocadas en resolución de problemas.</p>
+                        <ul>
+                            <li><span style="color: var(--primary-color);">■</span> Habilidades blandas: comunicar, ser
+                                proactivo e investigar.</li>
+                            <li><strong>Showcase:</strong> Cada alumno presenta por 3 minutos su proyecto final operando
+                                en
+                                la nube.</li>
+                            <li>Retroalimentación de pares, consultas finales y entrega de Diploma digital.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-box"
+                    style="margin-bottom: 80px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <h3 style="margin-top: 0; font-size: 1.5rem; margin-bottom: 15px;">Inscripciones (Cupos Limitados)
+                    </h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--text-muted);">
+                        Escríbeme por WhatsApp para reservar tu lugar.
+                    </p>
+                    <a href="https://wa.me/543765516615" target="_blank" rel="noopener" class="whatsapp-cta"
+                        style="display: inline-flex; width: auto; font-size: 1.3rem; padding: 20px 40px;">
+                        <i class="fab fa-whatsapp" style="font-size: 1.8rem;"></i>
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html#home" class="brand-link">
+                    </a>
+                    <p class="footer-description">
+                        German Javier - Desarrollador y diseñador web especializado en crear experiencias
+                        digitales extraordinarias que combinan innovación y funcionalidad.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="../index.html#home">Inicio</a></li>
+                            <li><a href="../index.html#about">Sobre Mí</a></li>
+                            <li><a href="../index.html#skills">Skills</a></li>
+                            <li><a href="../index.html#projects">Proyectos</a></li>
+                            <li><a href=".">Cursos</a></li>
+                            <li><a href="../index.html#contact">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#">Desarrollo Web</a></li>
+                            <li><a href="#">Diseño UX/UI</a></li>
+                            <li><a href="#">Consultoría</a></li>
+                            <li><a href="#">Mantenimiento</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Sígueme</h4>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/german-javier/" class="social-link" target="_blank"
+                                rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/germanjavier" class="social-link" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://x.com/GermanjavierYt" class="social-link" target="_blank" rel="noopener"
+                                aria-label="Twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/german._.javier" class="social-link" target="_blank"
+                                rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+                <div class="footer-copyright">
+                    <p>&copy; <span id="current-year">2024</span> German Javier. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.timeline-container');
+            const progress = document.querySelector('.timeline-progress');
+
+            if (container && progress) {
+                const updateTimeline = () => {
+                    const rect = container.getBoundingClientRect();
+                    const triggerPoint = window.innerHeight * 0.6;
+
+                    if (rect.top > triggerPoint) {
+                        progress.style.height = '0%';
+                    } else if (rect.bottom < triggerPoint) {
+                        progress.style.height = '100%';
+                    } else {
+                        const filled = ((triggerPoint - rect.top) / rect.height) * 100;
+                        progress.style.height = `${filled}%`;
+                    }
+                };
+                window.addEventListener('scroll', updateTimeline);
+                updateTimeline();
+            }
+        });
+    </script>
+</body>
+
+</html>

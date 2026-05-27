@@ -645,7 +645,7 @@ body.dark-theme .icon-sun {
   .nav-menu {
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
   }
 
   .nav-item {
@@ -655,8 +655,8 @@ body.dark-theme .icon-sun {
   }
 
   .nav-link {
-    font-size: 0.95rem;
-    padding: 8px 12px;
+    font-size: 1.05rem;
+    padding: 8px 20px;
     font-weight: 500;
   }
 
